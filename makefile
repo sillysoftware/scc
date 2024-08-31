@@ -1,4 +1,4 @@
 all: run
 
 run:
-	@go run ./...
+	@go run ./... demo/exit.lisp

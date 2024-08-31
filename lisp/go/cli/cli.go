@@ -13,13 +13,13 @@ const (
 )
 
 func Fatal(m string) {
-	fmt.Printf("LITX: %sfatal error%s: %s", errC, reset, m)
+	fmt.Printf("LISP: %sfatal error%s: %s", errC, reset, m)
 	fmt.Println("\ncompilation terminated.")
 	os.Exit(0)
 }
 
 func Error(m string) {
-	fmt.Printf("LITX: %serror%s: %s\n", errC, reset, m)
+	fmt.Printf("LISP: %serror%s: %s\n", errC, reset, m)
 }
 
 func Warn(warning string) {
