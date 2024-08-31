@@ -16,22 +16,14 @@ func lexer(source string) types.Tokens {
 	var tokens types.Tokens
 	for current < len([]rune(source)) {
 		char := string([]rune(source)[current])
+		cli.Debug("token", char)
 		if char == "(" {
 			tokens.Append("paren", "(")
 			goto next
 		}
 		if char == ")" {
 			tokens.Append("paren", ")")
-		}
-		if isAlpha(char) {
-			value := ""
-			for isAlpha(char) {
-				value += char
-				current++
-				char = string([]rune(source)[current])
-			}
-			tokens.Append("name", value)
-			continue
+			goto next
 		}
 		if isNumber(char) {
 			value := ""
@@ -41,8 +33,19 @@ func lexer(source string) types.Tokens {
 				char = string([]rune(source)[current])
 			}
 			tokens.Append("number", value)
-			continue
+			goto next
 		}
+		if isAlpha(char) {
+			value := ""
+			for isAlpha(char) {
+				value += char
+				current++
+				char = string([]rune(source)[current])
+			}
+			tokens.Append("name", value)
+			goto next
+		}
+		break
 	next:
 		current++
 		continue

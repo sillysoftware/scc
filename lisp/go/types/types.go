@@ -7,8 +7,8 @@ type Token struct {
 
 type Tokens []Token
 
-func (t Tokens) Append(kind string, value string) {
-	t = append(t, Token{kind: kind, value: value})
+func (t *Tokens) Append(kind string, value string) {
+	*t = append(*t, Token{kind: kind, value: value})
 }
 
 type Node struct {
