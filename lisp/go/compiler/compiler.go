@@ -82,7 +82,7 @@ var pt types.Tokens
 
 type ast types.Node
 
-func parser(tokens types.Tokens) {
+func parser(tokens types.Tokens) ast {
 	pc = 0
 	pt = tokens
 	ast := ast{
@@ -92,9 +92,13 @@ func parser(tokens types.Tokens) {
 	for pc < len(pt) {
 		ast.Body = append(ast.Body, walk())
 	}
+	return ast
 }
 
 func walk() types.Node {
+	token := pt[pc]
+	cli.Fatal(fmt.Sprintf("Unexpected token: %s", token.Kind))
+	return types.Node{}
 }
 
 func generation() {}
