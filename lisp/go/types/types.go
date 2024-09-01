@@ -12,17 +12,15 @@ func (t *Tokens) Append(kind string, value string) {
 }
 
 type Node struct {
-	kind       string
-	value      string
-	name       string
-	callee     *Node
-	expression *Node
-	body       []Node
-	params     []Node
-	arguments  *[]Node
-	context    *[]Node
+	Kind       string
+	Value      string
+	Name       string
+	Callee     *Node
+	Expression *Node
+	Body       []Node
+	Params     []Node
+	Arguments  *[]Node
+	Context    *[]Node
 }
-
-type Ast Node
 
 type Visitor map[string]func(n *Node, p Node)

@@ -77,5 +77,24 @@ func isAlpha(char string) bool {
 	return false
 }
 
-func ast()        {}
+var pc int
+var pt types.Tokens
+
+type ast types.Node
+
+func parser(tokens types.Tokens) {
+	pc = 0
+	pt = tokens
+	ast := ast{
+		Kind: "prog",
+		Body: []types.Node{},
+	}
+	for pc < len(pt) {
+		ast.Body = append(ast.Body, walk())
+	}
+}
+
+func walk() types.Node {
+}
+
 func generation() {}
