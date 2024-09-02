@@ -1,13 +1,14 @@
 package compiler
 
 import (
+	"fmt"
 	"lisp/lisp/go/cli"
 	"lisp/lisp/go/types"
 )
 
 func Compile(source string) {
 	tokens := lexer(source)
-	cli.Debug("tokens", tokens)
+	ast := parser(tokens)
 }
 
 func lexer(source string) types.Tokens {
@@ -44,7 +45,7 @@ func lexer(source string) types.Tokens {
 				current++
 				char = string([]rune(source)[current])
 			}
-			tokens.Append("name", value)
+			tokens.Append("ident", value)
 			continue
 		}
 		break
@@ -97,8 +98,65 @@ func parser(tokens types.Tokens) ast {
 
 func walk() types.Node {
 	token := pt[pc]
-	cli.Fatal(fmt.Sprintf("Unexpected token: %s", token.Kind))
+	if token.Kind == "number" {
+		pc++
+		return types.Node{Kind: "NumberLiteral", Value: token.Value}
+	}
+	if token.Kind == "paren" && token.Value == "(" {
+		pc++
+		token = pt[pc]
+		n := types.Node{
+			Kind:   "CallExpression",
+			Name:   token.Value,
+			Params: []types.Node{},
+		}
+		pc++
+		token = pt[pc]
+		for token.Kind != "paren" || (token.Kind == "paren" && token.Value != ")") {
+			n.Params = append(n.Params, walk())
+			token = pt[pc]
+		}
+		pc++
+		return n
+	}
+	cli.Fatal(fmt.Sprintf("Unexpected token: %s", token.Value))
 	return types.Node{}
 }
 
-func generation() {}
+func traverser(a ast, v types.Visitor) {
+}
+
+func traverseArray(a []types.Node, p types.Node, v types.Visitor) {
+	for _, child := range a {
+		traverseNode(child, p, v)
+	}
+}
+
+func traverseNode(n, p types.Node, v types.Visitor) {
+	for k, va := range v {
+		if k == n.Kind {
+			va(&n, p)
+		}
+	}
+	switch n.Kind {
+	case "prog":
+		traverseArray(n.Body, n, v)
+		break
+	case "CallExpression":
+		traverseArray(n.Params, n, v)
+		break
+	case "NumberLiteral":
+		break
+	default:
+		cli.Fatal(fmt.Sprintf("Unexpected node: %s", n.Kind))
+	}
+}
+
+func transformer(a ast) ast {
+	nast := ast{
+		Kind: "Program",
+		Body: []types.Node{},
+	}
+	a.Context = &nast.Body
+	return nast
+}

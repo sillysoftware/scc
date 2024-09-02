@@ -1,14 +1,14 @@
 package types
 
 type Token struct {
-	kind  string
-	value string
+	Kind  string
+	Value string
 }
 
 type Tokens []Token
 
 func (t *Tokens) Append(kind string, value string) {
-	*t = append(*t, Token{kind: kind, value: value})
+	*t = append(*t, Token{Kind: kind, Value: value})
 }
 
 type Node struct {
