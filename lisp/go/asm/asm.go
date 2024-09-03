@@ -10,6 +10,6 @@ var (
 	Init string
 )
 
-func Exit(status int) string {
+func GenAsmExit(status int) string {
 	return fmt.Sprintf("\tmov rax, 60\n\tmov rbi, %d\n\tsyscall\n", status)
 }
