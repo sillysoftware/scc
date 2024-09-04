@@ -9,6 +9,7 @@ import (
 func Compile(source string) {
 	tokens := lexer(source)
 	ast := parser(tokens)
+	_ = ast
 }
 
 func lexer(source string) types.Tokens {
