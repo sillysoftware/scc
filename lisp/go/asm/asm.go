@@ -18,5 +18,5 @@ func arg(n int) string {
 }
 
 func GenAsmExit(status int) string {
-	return strings.Replace(exit, arg(0), string(status))
+	return strings.ReplaceAll(exit, arg(0), string(status))
 }
