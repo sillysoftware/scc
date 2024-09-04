@@ -1,3 +1,3 @@
   mov rax, 60
-  mov rdi, $
+  mov rdi, ${0}
   syscall
