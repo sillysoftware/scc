@@ -5,6 +5,7 @@ import (
 	"lisp/lisp/go/asm"
 	"lisp/lisp/go/compiler"
 	"os"
+	"strings"
 )
 
 func main() {
@@ -12,7 +13,9 @@ func main() {
 		// exits
 		cli.Fatal("No files found")
 	}
-	cli.Warn("This is an unsafe cli. It will just attempt to compile what ever argument is passed to this.")
+	if !strings.Contains(os.Args[1], ".lisp") || !strings.Contains(os.Args[1], ".cl") {
+		cli.Fatal("Incorrect file extention")
+	}
 	cli.Debug("asm", asm.GenAsmExit(0))
 	content, err := os.ReadFile(os.Args[1])
 	if err != nil {
