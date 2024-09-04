@@ -12,6 +12,10 @@ var (
 	exit string
 )
 
+func arg(n int) string {
+	return fmt.Sprintf("${%d}", n)
+}
+
 func GenAsmExit(status int) string {
-	return strings.Replace(exit, "$", string(status))
+	return strings.Replace(exit, arg(0), string(status))
 }
