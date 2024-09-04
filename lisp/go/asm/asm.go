@@ -3,6 +3,7 @@ package asm
 import (
 	_ "embed"
 	"fmt"
+	"strings"
 )
 
 var (
