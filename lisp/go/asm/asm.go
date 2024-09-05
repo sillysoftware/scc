@@ -7,9 +7,9 @@ import (
 )
 
 var (
-	//go:embed assembly/init.s
+	//go:embed ../../assembly/init.s
 	Init string
-	//go:embed assembly/exit.s
+	//go:embed ../../assembly/exit.s
 	exit string
 )
 
