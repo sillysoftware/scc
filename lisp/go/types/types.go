@@ -24,5 +24,3 @@ type Node struct {
 }
 
 type Visitor map[string]func(n *Node, p Node)
-
-type Fn func(any)
