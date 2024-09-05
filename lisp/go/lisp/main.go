@@ -13,7 +13,7 @@ func main() {
 		// exits
 		cli.Fatal("No files found")
 	}
-	if !strings.Contains(os.Args[1], ".lisp") || !strings.Contains(os.Args[1], ".cl") {
+	if strings.Contains(os.Args[1], ".lisp") == false || !strings.Contains(os.Args[1], ".cl") == false {
 		cli.Fatal("Incorrect file extention")
 	}
 	cli.Debug("asm", asm.Exit)
