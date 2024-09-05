@@ -19,4 +19,5 @@ func arg(n int) string {
 
 func GenAsmExit(status int) string {
 	out := strings.ReplaceAll(exit, arg(0), fmt.Sprintf("%d", status))
+	return out
 }
