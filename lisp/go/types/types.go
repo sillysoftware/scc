@@ -24,3 +24,12 @@ type Node struct {
 }
 
 type Visitor map[string]func(n *Node, p Node)
+
+type Assembly struct {
+	prog string
+	operations []string
+}
+
+func (a Assembly)Reduce() {
+	//reduce from ["", "", ""] -> ""
+}
