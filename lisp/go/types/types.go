@@ -31,5 +31,5 @@ type Assembly struct {
 }
 
 func (a Assembly)Reduce() {
-	//reduce from ["", "", ""] -> ""
+	//reduce from [asm1, asm2, asm3] -> "asm1\nasm2\nasm3"
 }
