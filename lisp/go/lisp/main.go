@@ -27,10 +27,10 @@ func main() {
 }
 
 func test() {
-	var asm types.Assembly
+	var assm types.Assembly
 	init := asm.GenStartAsm("test.lisp")
 	write := asm.GenWriteAsm(1, "mayo", 4)
-	asm.Asm = append(asm.Asm, init)
-	asm.Asm = append(asm.Asm, write)
-	cli.Debug("asm", asm.Reduce())
+	assm.Asm = append(assm.Asm, init)
+	assm.Asm = append(assm.Asm, write)
+	cli.Debug("asm", assm.Reduce())
 }
