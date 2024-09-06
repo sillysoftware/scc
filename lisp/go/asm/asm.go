@@ -3,7 +3,8 @@ package asm
 import (
 	_ "embed"
 	"fmt"
-	"strings"
+	. "strings"
+	. "strconv"
 )
 
 var (
@@ -20,10 +21,17 @@ func arg(n int) string {
 }
 
 func GenStartAsm(file string) string {
-	return strings.ReplaceAll(Init, arg(0), file)
+	return ReplaceAll(Init, arg(0), file)
+}
+
+func GenWriteAsm(desc int, word string, size int) string {
+	buf := ReplaceAll(write, arg(0), Itoa(desc))
+	buf = ReplaceAll(buf, arg(1), word)
+	buf = ReplaceAll(buf, arg(2), Itoa(size))
+	return buf
 }
 
 func GenAsmExit(status int) string {
-	out := strings.ReplaceAll(exit, arg(0), fmt.Sprintf("%d", status))
-	return out
+	buf := ReplaceAll(exit, arg(0), Itoa(status))
+	return buf
 }
