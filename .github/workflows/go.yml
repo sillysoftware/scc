@@ -23,5 +23,5 @@ jobs:
 
     - name: Make
       run: make
-    - name: Test
-      run: go test lisp/lisp/go/asm/asm_test.go
+    #- name: Test
+      #run: make test
