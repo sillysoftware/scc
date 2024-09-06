@@ -24,12 +24,3 @@ type Node struct {
 }
 
 type Visitor map[string]func(n *Node, p Node)
-
-type Assembly struct {
-	prog string
-	operations []string
-}
-
-func (a Assembly)Reduce() {
-	//reduce from [asm1, asm2, asm3] -> "asm1\nasm2\nasm3"
-}

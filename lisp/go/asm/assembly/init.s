@@ -1,3 +1,4 @@
+  .file "${0}"
 section .text
   global _start
 
@@ -11,4 +12,3 @@ main_exit:
   int 0x80
 
 main:
-  ret
