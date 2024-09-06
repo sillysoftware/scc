@@ -6,8 +6,8 @@ _start:
   jmp main_exit
 
 main_exit:
-  mov eax, 1
-  xor ebx, ebx
-  int 0x80
+  mov rax, 60
+  mov rbi, 0
+  syscall
 
 main:
