@@ -11,6 +11,8 @@ var (
 	Init string
 	//go:embed assembly/exit.s
 	exit string
+	//go:embed assembly/write.s
+	write string
 )
 
 func arg(n int) string {
