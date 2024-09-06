@@ -17,6 +17,7 @@ func main() {
 		cli.Fatal("Incorrect file extention")
 	}
 	cli.Debug("asm", asm.GenStartAsm("test.lisp"))
+	cli.Debug("asm", asm.GenWriteAsm(1, "world", 5))
 	content, err := os.ReadFile(os.Args[1])
 	if err != nil {
 		panic(err)
