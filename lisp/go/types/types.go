@@ -24,3 +24,16 @@ type Node struct {
 }
 
 type Visitor map[string]func(n *Node, p Node)
+
+type Assembly struct {
+	Prog string
+	Asm []string
+}
+
+func (a Assembly)Reduce() string {
+	out := ""
+	for _, snip := range a.Asm {
+		out += snip
+	}
+	return out
+}
