@@ -20,10 +20,6 @@ func arg(n int) string {
 	return fmt.Sprintf("${%d}", n)
 }
 
-func GenStartAsm(file string) string {
-	return ReplaceAll(Init, arg(0), file)
-}
-
 func GenWriteAsm(desc int, word string, size int) string {
 	buf := ReplaceAll(write, arg(0), Itoa(desc))
 	buf = ReplaceAll(buf, arg(1), word)
