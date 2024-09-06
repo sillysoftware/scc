@@ -3,7 +3,7 @@ package main
 import (
 	"lisp/lisp/go/asm"
 	"lisp/lisp/go/cli"
-	"lisp/lisp/go/compiler
+	"lisp/lisp/go/compiler"
 	"lisp/lisp/go/types"
 	"os"
 	"strings"
