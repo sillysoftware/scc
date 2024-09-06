@@ -1,4 +1,3 @@
-.file	"${0}"
 section .text
   global _start
 
