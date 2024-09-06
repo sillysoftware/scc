@@ -35,5 +35,6 @@ func (a Assembly)Reduce() string {
 	for _, snip := range a.Asm {
 		out += snip
 	}
+	out += "\tret"
 	return out
 }
