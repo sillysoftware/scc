@@ -23,7 +23,7 @@ func arg(n int) string {
 func GenWriteAsm(desc int, word string) string {
 	buf := ReplaceAll(write, arg(0), Itoa(desc))
 	buf = ReplaceAll(buf, arg(1), word)
-	buf = ReplaceAll(buf, arg(2), len(word))
+	buf = ReplaceAll(buf, arg(2), Itoa(len(word)))
 	return buf
 }
 
