@@ -1,7 +1,7 @@
 package main
 
 import (
-	"lisp/lisp/go/asm"
+	// "lisp/lisp/go/asm"
 	"lisp/lisp/go/cli"
 	"lisp/lisp/go/compiler"
 	"lisp/lisp/go/types"
@@ -27,9 +27,7 @@ func main() {
 }
 
 func test() {
-	var assm types.Assembly
-	write := asm.GenWriteAsm(1, "mayo")
-	assm.Asm = append(assm.Asm, asm.Init)
-	assm.Asm = append(assm.Asm, write)
-	cli.Debug("asm", assm.Reduce())
+	var progasm types.Assembly
+	progasm.Init()
+	cli.Debug("asm", progasm.Reduce())
 }

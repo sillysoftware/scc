@@ -1,5 +1,7 @@
+section .data
+; term .data
 section .text
-  global _start
+global _start
 
 _start:
   call main
@@ -7,7 +9,7 @@ _start:
 
 main_exit:
   mov rax, 60
-  mov rbi, 0
+  mov rdi, 0
   syscall
 
 main:

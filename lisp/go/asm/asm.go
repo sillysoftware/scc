@@ -3,8 +3,8 @@ package asm
 import (
 	_ "embed"
 	"fmt"
-	. "strings"
 	. "strconv"
+	. "strings"
 )
 
 var (
@@ -20,14 +20,18 @@ func arg(n int) string {
 	return fmt.Sprintf("${%d}", n)
 }
 
-func GenWriteAsm(desc int, word string) string {
+func GenWrite(desc int, word string) (string, string) {
 	buf := ReplaceAll(write, arg(0), Itoa(desc))
 	buf = ReplaceAll(buf, arg(1), word)
 	buf = ReplaceAll(buf, arg(2), Itoa(len(word)))
+	return buf, AddData(word)
+}
+
+func GenExit(status int) string {
+	buf := ReplaceAll(exit, arg(0), Itoa(status))
 	return buf
 }
 
-func GenAsmExit(status int) string {
-	buf := ReplaceAll(exit, arg(0), Itoa(status))
-	return buf
+func AddData(word string) string {
+	return ""
 }

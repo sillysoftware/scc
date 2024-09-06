@@ -1,5 +1,7 @@
 package types
 
+import "lisp/lisp/go/asm"
+
 type Token struct {
 	Kind  string
 	Value string
@@ -26,15 +28,28 @@ type Node struct {
 type Visitor map[string]func(n *Node, p Node)
 
 type Assembly struct {
-	Prog string
-	Asm []string
+	Operations []string
 }
 
-func (a Assembly)Reduce() string {
-	out := ""
-	for _, snip := range a.Asm {
-		out += snip
+func (a *Assembly) Append(data string) {
+	a.Operations = append(a.Operations, data)
+}
+
+func (a Assembly) Reduce() string {
+	buf := ""
+	for _, opt := range a.Operations {
+		buf += "\n" + opt
 	}
-	out += "  ret"
-	return out
+	buf += "  ret"
+	return buf
+}
+
+func (a *Assembly) Init() {
+	a.Append(asm.Init)
+}
+
+func (a *Assembly) Data(data string) {
+	init := a.Operations[0]
+	_ = init
+	// add data
 }
