@@ -1,3 +1,3 @@
-  mov eax, 1
-  xor ebx, ${0}
-  int 0x80
+  mov rax, 60
+  mov rbi, ${0}
+  syscall
