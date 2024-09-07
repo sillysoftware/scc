@@ -23,5 +23,5 @@ jobs:
 
     - name: Make
       run: make
-    #- name: Test
-      #run: make test
+    - name: Test
+      run: make test

@@ -1,6 +1,7 @@
 package main
 
 import (
+	"fmt"
 	"lisp/lisp/go/asm"
 	"lisp/lisp/go/cli"
 	"lisp/lisp/go/compiler"
@@ -32,5 +33,5 @@ func test() {
 	asmOut.AppendData(asm.GenWordData("lisp"))
 	asmOut.Append(asm.GenWrite("lisp"))
 	asmOut.Reduce()
-	cli.Debug("asm", asmOut.Operations)
+	fmt.Print(asmOut.Operations)
 }
