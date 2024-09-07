@@ -1,7 +1,7 @@
 all: build
 
 build:
-	@go build -o lispc ./...
+	@go run ./... demo/exit.lisp
 
 test:
 	@go test lisp/go/asm/asm_test.go
