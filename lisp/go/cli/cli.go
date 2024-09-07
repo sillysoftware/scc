@@ -18,14 +18,17 @@ func Fatal(m string) {
 	os.Exit(0)
 }
 
-func Error(m string) {
+func Error(m string) string {
 	fmt.Printf("LISP: %serror%s: %s\n", errC, reset, m)
+	return fmt.Sprintf("LISP: %serror%s: %s\n", errC, reset, m)
 }
 
-func Warn(warning string) {
+func Warn(warning string) string {
 	fmt.Printf("%swarning:%s %s\n", warnC, reset, warning)
+	return fmt.Sprintf("LISP: %serror%s: %s\n", errC, reset, warning)
 }
 
-func Debug(tag string, dbm any) {
+func Debug(tag string, dbm any) string {
 	fmt.Printf("%sdebug%s: %s\n%s\n", debugC, reset, tag, dbm)
+	return fmt.Sprintf("%sdebug%s: %s\n%s\n", debugC, reset, tag, dbm)
 }

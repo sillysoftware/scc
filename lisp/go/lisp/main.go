@@ -1,7 +1,7 @@
 package main
 
 import (
-	// "lisp/lisp/go/asm"
+	"lisp/lisp/go/asm"
 	"lisp/lisp/go/cli"
 	"lisp/lisp/go/compiler"
 	"lisp/lisp/go/types"
@@ -27,7 +27,10 @@ func main() {
 }
 
 func test() {
-	var progasm types.Assembly
-	progasm.Init()
-	cli.Debug("asm", progasm.Reduce())
+	var asmOut types.Assembly
+	asmOut.Init()
+	asmOut.AppendData(asm.GenWordData("lisp"))
+	asmOut.Append(asm.GenWrite("lisp"))
+	asmOut.Reduce()
+	cli.Debug("asm", asmOut.Operations)
 }

@@ -28,28 +28,22 @@ type Node struct {
 type Visitor map[string]func(n *Node, p Node)
 
 type Assembly struct {
-	Operations []string
-}
-
-func (a *Assembly) Append(data string) {
-	a.Operations = append(a.Operations, data)
-}
-
-func (a Assembly) Reduce() string {
-	buf := ""
-	for _, opt := range a.Operations {
-		buf += "\n" + opt
-	}
-	buf += "  ret"
-	return buf
+	Operations string
 }
 
 func (a *Assembly) Init() {
 	a.Append(asm.Init)
 }
 
-func (a *Assembly) Data(data string) {
-	init := a.Operations[0]
-	_ = init
-	// add data
+func (a *Assembly) Reduce() {
+	a.Operations = "section .data\n" + a.Operations
+	a.Operations += "  ret"
+}
+
+func (a *Assembly) Append(data string) {
+	a.Operations += data
+}
+
+func (a *Assembly) AppendData(data string) {
+	a.Operations = data + a.Operations
 }
