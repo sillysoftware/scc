@@ -4,12 +4,14 @@ import (
 	"fmt"
 	"lisp/lisp/go/cli"
 	"lisp/lisp/go/types"
+	"strings"
 )
 
 func Compile(source string) {
 	tokens := lexer(source)
 	ast := parser(tokens)
-	_ = ast
+	nast := transformer(ast)
+	cli.Debug("nast", nast)
 }
 
 func lexer(source string) types.Tokens {
@@ -125,6 +127,7 @@ func walk() types.Node {
 }
 
 func traverser(a ast, v types.Visitor) {
+	traverseNode(types.Node(a), types.Node{}, v)
 }
 
 func traverseArray(a []types.Node, p types.Node, v types.Visitor) {
@@ -159,5 +162,47 @@ func transformer(a ast) ast {
 		Body: []types.Node{},
 	}
 	a.Context = &nast.Body
+	traverser(a, map[string]func(n *types.Node, p types.Node){
+		"NumberLiteral": func(n *types.Node, p types.Node) {
+			*p.Context = append(*p.Context, types.Node{
+				Kind:  "NumberLiteral",
+				Value: n.Value,
+			})
+		},
+		"CallExpression": func(n *types.Node, p types.Node) {
+			e := types.Node{
+				Kind: "CallExpression",
+				Callee: &types.Node{
+					Kind: "Identifier",
+					Name: n.Name,
+				},
+				Arguments: new([]types.Node),
+			}
+			n.Context = e.Arguments
+			if p.Kind != "CallExpression" {
+				es := types.Node{
+					Kind:       "ExpressionStatement",
+					Expression: &e,
+				}
+				*p.Context = append(*p.Context, es)
+			} else {
+				*p.Context = append(*p.Context, e)
+			}
+		},
+	})
 	return nast
+}
+
+func codeGenerator(n types.Node) string {
+	switch n.Kind {
+	case "Prog":
+		var r []string
+		for _, no := range n.Body {
+			r = append(r, codeGenerator(no))
+		}
+		return strings.Join(r, "\n")
+	default:
+		cli.Fatal("Assembly Generation Error")
+		return ""
+	}
 }
