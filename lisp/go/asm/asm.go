@@ -51,14 +51,15 @@ func GenWordData(word string) string {
 }
 
 func GenExit(status int) string {
-	buf := ReplaceAll(exit, arg(0), Itoa(status))
+	buf := exit
+	buf = ReplaceAll(buf, arg(0), Itoa(status))
 	return buf
 }
 
-func GenWrite(word string) string {
+func GenWrite(desc int, word string, position int) string {
 	buf := write
-	buf = ReplaceAll(buf, arg(0), "1")
-	buf = ReplaceAll(buf, arg(1), "lisp0")
-	buf = ReplaceAll(buf, arg(2), "lisp0l")
+	buf = ReplaceAll(buf, arg(0), Itoa(desc))
+	buf = ReplaceAll(buf, arg(1), fmt.Sprintf("%s%d", word, position))
+	buf = ReplaceAll(buf, arg(2), fmt.Sprintf("%s%dl", word, position))
 	return buf
 }

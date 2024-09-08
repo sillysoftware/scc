@@ -1,10 +1,11 @@
 all: build
 
 build:
-	@go run ./... demo/exit.lisp
+	@mkdir bin
+	@go build -o bin ./...
 
 test:
-	@go test lisp/go/asm/asm_test.go
+	@go test ./...
 
 clean:
 	@go clean

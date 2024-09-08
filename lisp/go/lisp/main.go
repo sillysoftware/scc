@@ -31,7 +31,7 @@ func test() {
 	var asmOut types.Assembly
 	asmOut.Init()
 	asmOut.AppendData(asm.GenWordData("lisp"))
-	asmOut.Append(asm.GenWrite("lisp"))
+	asmOut.Append(asm.GenWrite(1, "lisp", 0))
 	asmOut.Reduce()
 	fmt.Print(asmOut.Operations)
 }
