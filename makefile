@@ -1,7 +1,7 @@
 all: build
 
 build:
-	@mkdir bin
+	@-mkdir bin
 	@go build -o bin ./...
 
 test:
