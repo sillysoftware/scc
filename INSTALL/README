@@ -1,0 +1,1 @@
+Inside the parent directory runnuing the make command or the make build on Unix systems with the golang binary and the make binary will produced the output binary in the bin directory

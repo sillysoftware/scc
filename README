@@ -1,5 +1,5 @@
 THIS DIRECTORY CONTAINS SOFTWARE LICENCED UNDER THE BSD 3-Clause LICENCE
 
-This Lisp compiler is free software and can be used in the bounds of the licence detailed in the LICENCE file in this directory. This is not an offical Lisp compiler and will not be a full implementation of the language. Installation information can be found in the install.md file and can be viewed as either rendered markdown or plain text.
+This Lisp compiler is free software and can be used in the bounds of the licence detailed in the LICENCE file in this directory. This is not an offical Lisp compiler and will not be a full implementation of the language. Installation information can be found in the INSTALL/ directory.
 
 If any issues are found please report them to https://github.com/vx-clutch/lisp/issues
