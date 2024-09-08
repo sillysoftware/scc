@@ -9,3 +9,4 @@ test:
 
 clean:
 	@go clean
+	@-rm -rf bin/

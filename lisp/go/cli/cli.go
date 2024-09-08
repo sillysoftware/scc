@@ -7,9 +7,10 @@ import (
 
 const (
 	reset  = "\033[0m"
-	errC   = "\033[091m" // HI-Red
-	warnC  = "\033[095m" // Hi-Purple
-	debugC = "\033[097m" // Hi-White
+	errC   = "\033[1;91m" // Bold High Intensity Red
+	warnC  = "\033[1;95m" // Bold High Intensity Purple
+	debugC = "\033[1;97m" // Bold High Intensity White
+
 )
 
 func Fatal(m string) {
