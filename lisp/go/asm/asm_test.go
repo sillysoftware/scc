@@ -20,7 +20,10 @@ func TestAssembly(t *testing.T) {
 	asmOut.Append(asm.GenWrite(1, "lisp", 0))
 	asmOut.Reduce()
 	if asmOut.Operations != testAsset {
-		os.WriteFile("asmlog", []byte(asmOut.Operations), 0755)
+		err := os.WriteFile("asmlog", []byte(asmOut.Operations), 0755)
+		if err != nil {
+			cli.Fatal(err)
+		}
 		t.Fatal("Incorrect assembly generated logs outputed to asmlog")
 	}
 }
