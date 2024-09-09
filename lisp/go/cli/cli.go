@@ -13,18 +13,18 @@ const (
 
 )
 
-func Fatal(m string) {
+func Fatal(m any) {
 	fmt.Printf("LISP: %sfatal error%s: %s", errC, reset, m)
 	fmt.Println("\ncompilation terminated.")
 	os.Exit(0)
 }
 
-func Error(m string) string {
+func Error(m any) string {
 	fmt.Printf("LISP: %serror%s: %s\n", errC, reset, m)
 	return fmt.Sprintf("LISP: %serror%s: %s\n", errC, reset, m)
 }
 
-func Warn(warning string) string {
+func Warn(warning any) string {
 	fmt.Printf("%swarning:%s %s\n", warnC, reset, warning)
 	return fmt.Sprintf("LISP: %serror%s: %s\n", errC, reset, warning)
 }
