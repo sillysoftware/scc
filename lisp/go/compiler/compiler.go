@@ -4,8 +4,8 @@ import (
 	"fmt"
 	"lisp/lisp/go/cli"
 	"lisp/lisp/go/types"
-	"strings"
 	"runtime"
+	"strings"
 )
 
 func Compile(source string) {
