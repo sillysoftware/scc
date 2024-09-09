@@ -23,7 +23,7 @@ func TestAssembly(t *testing.T) {
 	if asmOut.Operations != testAsset {
 		err := os.WriteFile("asmlog", []byte(asmOut.Operations), 0755)
 		if err != nil {
-			cli.Fatal(err)
+			cli.Fatal(string(err))
 		}
 		t.Fatal("Incorrect assembly generated logs outputed to asmlog")
 	}
