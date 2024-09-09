@@ -5,6 +5,7 @@ import (
 	"lisp/lisp/go/cli"
 	"lisp/lisp/go/types"
 	"strings"
+	"runtime"
 )
 
 func Compile(source string) {
