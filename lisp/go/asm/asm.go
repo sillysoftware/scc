@@ -45,7 +45,6 @@ func GenWordData(word string) string {
 		buf = ReplaceAll(buf, arg(2), "")
 	}
 	buf = ReplaceAll(buf, arg(3), wordidl)
-	buf = ReplaceAll(buf, arg(4), wordid)
 	dataCounter++
 	return buf
 }
