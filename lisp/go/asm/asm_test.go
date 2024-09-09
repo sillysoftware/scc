@@ -4,6 +4,7 @@ import (
 	_ "embed"
 	"lisp/lisp/go/asm"
 	"lisp/lisp/go/types"
+	"lisp/lisp/go/cli"
 	"os"
 	"testing"
 )
