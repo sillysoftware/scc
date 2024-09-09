@@ -194,8 +194,11 @@ func transformer(a ast) ast {
 }
 
 func codeGenerator(n types.Node) string {
+	if runtime.GOOS != "linux" {
+		cli.Fatal("Unsupported OS Deteected")
+	}
 	switch n.Kind {
-	case "Prog":
+	case "Program":
 		var r []string
 		for _, no := range n.Body {
 			r = append(r, codeGenerator(no))
