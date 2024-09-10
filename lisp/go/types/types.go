@@ -1,3 +1,8 @@
+/* This file definnes Token, Tokens, .Append(), Node, Visitor, Assembly, Init(), Reduce(), Append(), AppendData()
+
+	This file is a part of LISP.
+
+*/
 package types
 
 import "lisp/lisp/go/asm"
