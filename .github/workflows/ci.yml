@@ -26,4 +26,4 @@ jobs:
     - name: Test
       run: make test
     - name: Format
-      run: go fmt
+      run: go fmt ./...
