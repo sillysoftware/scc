@@ -5,14 +5,14 @@ import (
 	"lisp/lisp/go/cli"
 	"lisp/lisp/go/types"
 	"runtime"
-	"strings"
 )
 
 func Compile(source string) {
 	tokens := lexer(source)
 	ast := parser(tokens)
 	nast := transformer(ast)
-	cli.Debug("nast", nast)
+	out := codeGenerator(types.Node(nast))
+	fmt.Println(out)
 }
 
 func lexer(source string) types.Tokens {
@@ -194,19 +194,12 @@ func transformer(a ast) ast {
 	return nast
 }
 
+var outAsm types.Assembly
+
 func codeGenerator(n types.Node) string {
 	if runtime.GOOS != "linux" {
 		cli.Fatal("Unsupported OS Deteected")
 	}
-	switch n.Kind {
-	case "Program":
-		var r []string
-		for _, no := range n.Body {
-			r = append(r, codeGenerator(no))
-		}
-		return strings.Join(r, "\n")
-	default:
-		cli.Fatal("Assembly Generation Error")
-		return ""
-	}
+	cli.Fatal("Code Generation incomplete")
+	return ""
 }
