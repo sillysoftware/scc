@@ -1,1 +1,7 @@
-Global assembly variable has inital value of init.s and then you can append instruction sets by calling .Append(string) the string can be generated via generation commands such as GenExit(int) -> string, And GenWrite(int, string) -> string(this also prepends the needed data)
+ASSEMBLY:
+  Init
+    starts with the value in init.s
+  GenExit:
+    Appends the an exit with a set exit status
+  GenWrite:
+    Prepends write data and appends the write syscall with the parameters in the data section
