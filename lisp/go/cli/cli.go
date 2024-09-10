@@ -1,4 +1,4 @@
-/* This file defines Fatal(), Error(), Warn(), Debug()
+/* cli.go defines Fatal(), Error(), Warn(), Debug() for Golang
 
 	This file is a part of LISP.
 
