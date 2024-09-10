@@ -1,7 +1,9 @@
 LISP:
-  -h, --help
-    Print help text
-  -o
-    Direct output from compiler
+  -h, --help:
+    Print help text.
+  -o:
+    Direct output from compiler to a file.
+    Usage:
+      lisp -o /path/ /source.cl/
   -S
-    Output the generated assembly
+    Output the generated assembly. Can be used with -o
