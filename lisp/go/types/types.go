@@ -1,4 +1,4 @@
-/* This file definnes Token, Tokens, .Append(), Node, Visitor, Assembly, Init(), Reduce(), Append(), AppendData()
+/* types.go defines Token, Tokens, .Append(), Node, Visitor, Assembly, Init(), Reduce(), Append(), AppendData() for Golang
 
 	This file is a part of LISP.
 
