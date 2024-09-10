@@ -149,9 +149,9 @@ func traverseNode(n, p types.Node, v types.Visitor) {
 		}
 	}
 	switch n.Kind {
-		case "prog":
-			traverseArray(n.Body, n, v)
-			break
+	case "prog":
+		traverseArray(n.Body, n, v)
+		break
 	case "CallExpression":
 		traverseArray(n.Params, n, v)
 		break
@@ -164,7 +164,7 @@ func traverseNode(n, p types.Node, v types.Visitor) {
 
 func transformer(a ast) ast {
 	nast := ast{
-		Kind: "Program",
+		Kind: "prog",
 		Body: []types.Node{},
 	}
 	a.Context = &nast.Body
