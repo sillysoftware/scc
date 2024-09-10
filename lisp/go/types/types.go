@@ -1,8 +1,10 @@
-/* types.go defines Token, Tokens, .Append(), Node, Visitor, Assembly, Init(), Reduce(), Append(), AppendData() for Golang
-
-	This file is a part of LISP.
-
-*/
+// types.go defines Token, Tokens, .Append(), Node, Visitor, Assembly, Init(), Reduce(), Append(), AppendData() for Golang
+//
+//	Copyright (C) 2024-2024 vx-clutch
+//
+//	This file is part of LISP.
+//
+//	LISP is free software; you can redistribute it and/or modify it under the terms of the BSD 3-Clause Licence.
 package types
 
 import "lisp/lisp/go/asm"
