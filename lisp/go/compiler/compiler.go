@@ -1,4 +1,4 @@
-/* This file defines Compile()
+/* compiler.go defines Compile() for Golang
 
 	This file is a part of LISP.
 
