@@ -1,3 +1,8 @@
+/* main.go defines main() for Golang
+
+	This file is a part of LISP.
+
+*/
 package main
 
 import (
