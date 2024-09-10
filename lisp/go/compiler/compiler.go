@@ -149,9 +149,9 @@ func traverseNode(n, p types.Node, v types.Visitor) {
 		}
 	}
 	switch n.Kind {
-	case "prog":
-		traverseArray(n.Body, n, v)
-		break
+		case "prog":
+			traverseArray(n.Body, n, v)
+			break
 	case "CallExpression":
 		traverseArray(n.Params, n, v)
 		break
