@@ -1,7 +1,9 @@
 ASSEMBLY:
-  Init
-    starts with the value in init.s
+  Init:
+    Starts with the value in init.s this must be called first during generation.
+  Reduce:
+    Takes current assembly and prepares it for output and is usually called last.
   GenExit:
-    Appends the an exit with a set exit status
+    Appends the an exit with a set exit status.
   GenWrite:
-    Prepends write data and appends the write syscall with the parameters in the data section
+    Prepends write data and appends the write syscall with the parameters in the data section.
