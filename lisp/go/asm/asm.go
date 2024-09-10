@@ -1,4 +1,4 @@
-/* This file defines Init, GenWordData(), GenExit(), GenWrite()
+/* asm.go defines Init, GenWordData(), GenExit(), GenWrite() for Golang
 
 	This file is a part of LISP.
  
