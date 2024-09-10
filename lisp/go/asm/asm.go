@@ -1,3 +1,8 @@
+/* This file defines Init, GenWordData(), GenExit(), GenWrite()
+
+	This file is a part of LISP.
+ 
+*/
 package asm
 
 import (
