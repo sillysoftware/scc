@@ -1,0 +1,7 @@
+LISP:
+  -h, --help
+    Print help text
+  -o
+    Direct output from compiler
+  -S
+    Output the generated assembly
