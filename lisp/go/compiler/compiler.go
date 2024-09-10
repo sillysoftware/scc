@@ -1,3 +1,8 @@
+/* This file defines Compile()
+
+	This file is a part of LISP.
+
+*/
 package compiler
 
 import (
