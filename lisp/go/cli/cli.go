@@ -1,3 +1,8 @@
+/* This file defines Fatal(), Error(), Warn(), Debug()
+
+	This file is a part of LISP.
+
+*/
 package cli
 
 import (
