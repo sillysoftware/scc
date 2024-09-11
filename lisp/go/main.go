@@ -1,4 +1,3 @@
-package main
 // main.go defines main() for Golang
 //
 //	Copyright (C) 2024-2024 vx-clutch
@@ -6,6 +5,8 @@ package main
 //	This file is part of LISP.
 //
 //	LISP is free software; you can redistribute it and/or modify it under the terms of the BSD 3-Clause Licence.
+package main
+
 import (
 	"lisp/lisp/go/cli"
 	"lisp/lisp/go/compiler"

@@ -1,4 +1,3 @@
-package cli
 // cli.go defines Fatal(), Error(), Warn(), Debug() for Golang
 //
 //	Copyright (C) 2024-2024 vx-clutch
@@ -6,6 +5,8 @@ package cli
 //	This file is part of LISP.
 //
 //	LISP is free software; you can redistribute it and/or modify it under the terms of the BSD 3-Clause Licence.
+package cli
+
 import (
 	"fmt"
 	"os"
