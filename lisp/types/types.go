@@ -1,3 +1,4 @@
+package types
 // types.go defines Token, Tokens, .Append(), Node, Visitor, Assembly, Init(), Reduce(), Append(), AppendData() for Golang
 //
 //	Copyright (C) 2024-2024 vx-clutch
@@ -5,8 +6,6 @@
 //	This file is part of LISP.
 //
 //	LISP is free software; you can redistribute it and/or modify it under the terms of the BSD 3-Clause Licence.
-package types
-
 type Token struct {
 	Kind  string
 	Value string
