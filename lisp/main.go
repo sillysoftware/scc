@@ -8,8 +8,8 @@
 package main
 
 import (
-	"lisp/lisp/go/cli"
-	"lisp/lisp/go/compiler"
+	"lisp/lisp/cli"
+	"lisp/lisp/compiler"
 	"os"
 	"strings"
 )

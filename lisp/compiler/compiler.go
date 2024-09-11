@@ -9,8 +9,8 @@ package compiler
 
 import (
 	"fmt"
-	"lisp/lisp/go/cli"
-	"lisp/lisp/go/types"
+	"lisp/lisp/cli"
+	"lisp/lisp/types"
 	"runtime"
 )
 
