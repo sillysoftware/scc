@@ -1,8 +1,9 @@
 all: build
 
-build:
+build: clean
 	@-mkdir bin
-	@go build -o bin ./...
+	@go build -o bin/ ./...
+	@mv bin/go bin/lisp
 
 test:
 	@go test ./...
