@@ -15,9 +15,10 @@ import (
 )
 
 var (
-	dataCounter int = 0
+	Assembly string
+	Data     string
 	//go:embed assembly/data.s
-	data string
+	dataSection string
 	//go:embed assembly/init.s
 	Init string
 	//go:embed assembly/exit.s
@@ -26,12 +27,25 @@ var (
 	write string
 )
 
+func appendAsm(data string) {
+	Assembly += data
+}
+
+func appendData(data string) {
+	Data += data
+}
+
+func Reduce() string {
+	buf := dataSection + Data + Init + Assembly
+	return buf
+}
+
 func arg(n int) string {
 	return fmt.Sprintf("${%d}", n)
 }
 
-func GenExit(status int) string {
+func GenExit(status int) {
 	buf := exit
 	buf = ReplaceAll(buf, arg(0), Itoa(status))
-	return buf
+	appendAsm(buf)
 }
