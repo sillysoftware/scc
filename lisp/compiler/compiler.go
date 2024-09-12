@@ -205,7 +205,7 @@ var outAsm types.Assembly
 
 func codeGenerator(n types.Node) string {
 	if runtime.GOOS != "linux" {
-		cli.Fatal("Unsupported OS Detected: For an up-to-data support list go to https://github.com/vx-clutch/lisp/docs/os")
+		cli.Fatal("Unsupported OS Detected: For an up-to-date support list go to the docs directory")
 	}
 	cli.Fatal("Code Generation incomplete")
 	return ""
