@@ -20,7 +20,7 @@ var (
 	//go:embed assembly/data.s
 	dataSection string
 	//go:embed assembly/init.s
-	init string
+	templateAsm string
 	//go:embed assembly/exit.s
 	exit string
 	//go:embed assembly/write.s
@@ -36,7 +36,7 @@ func appendData(data string) {
 }
 
 func Reduce() string {
-	return "section .data\n" + Join(Data, "\n") + "\n" + init + Assembly + "  ret"
+	return "section .data\n" + Join(Data, "\n") + "\n" + templateAsm + Assembly + "  ret"
 }
 
 func arg(n int) string {
