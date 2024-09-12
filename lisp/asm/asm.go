@@ -1,4 +1,4 @@
-// asm.go defines Init, GenWordData(), GenExit(), GenWrite() for Golang
+// asm.go defines GenExit(), GenWrite(), Reduce(), Assembly, Data for Golang
 //
 //	Copyright (C) 2024-2024 vx-clutch
 //
@@ -20,7 +20,7 @@ var (
 	//go:embed assembly/data.s
 	dataSection string
 	//go:embed assembly/init.s
-	Init string
+	init string
 	//go:embed assembly/exit.s
 	exit string
 	//go:embed assembly/write.s
@@ -36,7 +36,7 @@ func appendData(data string) {
 }
 
 func Reduce() string {
-	return "section .data\n" + Join(Data, "\n") + "\n" + Init + Assembly + "  ret"
+	return "section .data\n" + Join(Data, "\n") + "\n" + init + Assembly + "  ret"
 }
 
 func arg(n int) string {
