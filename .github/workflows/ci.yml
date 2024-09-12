@@ -25,3 +25,5 @@ jobs:
       run: make build
     - name: Test
       run: make test
+    - name: Run
+      run: go run ./... demo/exit.lisp
