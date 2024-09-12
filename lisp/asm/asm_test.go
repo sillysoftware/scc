@@ -3,7 +3,6 @@ package asm_test
 import (
 	_ "embed"
 	"lisp/lisp/asm"
-	"lisp/lisp/cli"
 	"testing"
 )
 
