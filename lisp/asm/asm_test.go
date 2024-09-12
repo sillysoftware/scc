@@ -13,7 +13,7 @@ var (
 )
 
 func TestAssembly(t *testing.T) {
-	asm.GenExit(0)
+	asm.GenWrite(1, "lisp")
 	buf := asm.Reduce()
-	cli.Debug("asm", buf)
+	_ = buf
 }
