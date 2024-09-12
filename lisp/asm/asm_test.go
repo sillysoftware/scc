@@ -15,5 +15,7 @@ var (
 func TestAssembly(t *testing.T) {
 	asm.GenWrite(1, "lisp")
 	buf := asm.Reduce()
-	_ = buf
+	if buf != testAsset {
+		t.Fatal("Incorrect Asm output")
+	}
 }
