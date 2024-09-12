@@ -37,6 +37,7 @@ func main() {
 
 func test() {
 	asm.GenExit(0)
+	asm.GenWrite(1, "Hello")
 	buf := asm.Reduce()
 	cli.Debug("asm", buf)
 }
