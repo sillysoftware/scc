@@ -37,9 +37,7 @@ func appendData(data string) {
 
 func Reduce() string {
 	buf := ""
-	for i, data := range Data {
-		buf += data[i] + "\n"
-	}
+	println(Data)
 	outBuf := ".section\n  " + buf + Init + Assembly + "  ret"
 	return outBuf
 }
