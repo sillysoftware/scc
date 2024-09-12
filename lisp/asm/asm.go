@@ -23,7 +23,7 @@ var (
 	Init string
 	//go:embed assembly/exit.s
 	exit string
-	//go:embed assembly/print.s
+	//go:embed assembly/write.s
 	write string
 )
 
@@ -57,4 +57,5 @@ func GenExit(status int) {
 func GenWrite(desc int, word string) {
 	buf := write
 	buf = ReplaceAll(buf, arg(0), Itoa(desc))
+	buf = ReplaceAll(buf, arg(1), word) // Add length of data []string
 }
