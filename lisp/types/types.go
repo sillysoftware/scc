@@ -7,8 +7,6 @@
 //	LISP is free software; you can redistribute it and/or modify it under the terms of the BSD 3-Clause Licence.
 package types
 
-import "lisp/lisp/asm"
-
 type Token struct {
 	Kind  string
 	Value string
