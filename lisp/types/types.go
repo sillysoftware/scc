@@ -1,4 +1,4 @@
-// types.go defines Token, Tokens, .Append(), Node, Visitor, Assembly, Init(), Reduce(), Append(), AppendData() for Golang
+// types.go defines Token, Tokens, Append(), Node, Visitor, Assembly for Golang
 //
 //	Copyright (C) 2024-2024 vx-clutch
 //
@@ -31,7 +31,3 @@ type Node struct {
 }
 
 type Visitor map[string]func(n *Node, p Node)
-
-func (a *Assembly) AppendData(data string) {
-	a.Operations = data + a.Operations
-}
