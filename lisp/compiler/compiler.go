@@ -201,8 +201,6 @@ func transformer(a ast) ast {
 	return nast
 }
 
-var outAsm types.Assembly
-
 func codeGenerator(n types.Node) string {
 	if runtime.GOOS != "linux" {
 		cli.Fatal("Unsupported OS Detected: For an up-to-date support list go to the docs directory")
