@@ -36,7 +36,7 @@ func appendData(data string) {
 }
 
 func Reduce() string {
-	return ".section  " + Join(Data, "\n") + "\n" + Init + Assembly + "  ret"
+	return "section .data\n" + Join(Data, "\n") + "\n" + Init + Assembly + "  ret"
 }
 
 func arg(n int) string {
