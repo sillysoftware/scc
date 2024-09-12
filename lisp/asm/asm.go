@@ -16,7 +16,7 @@ import (
 
 var (
 	Assembly string
-	Data     string
+	Data     []string
 	//go:embed assembly/data.s
 	dataSection string
 	//go:embed assembly/init.s
@@ -31,9 +31,17 @@ func appendAsm(data string) {
 	Assembly += data
 }
 
+func appendData(data string) {
+	Data = append(Data, data)
+}
+
 func Reduce() string {
-	buf := Init + Assembly + "  ret"
-	return buf
+	buf := ""
+	for _, data := range Data {
+		buf += data + "\n"
+	}
+	outBuf := Init + Assembly + "  ret"
+	return outBuf
 }
 
 func arg(n int) string {
