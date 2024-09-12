@@ -36,10 +36,7 @@ func appendData(data string) {
 }
 
 func Reduce() string {
-	buf := ""
-	println(Data)
-	outBuf := ".section\n  " + buf + Init + Assembly + "  ret"
-	return outBuf
+	return ".section  " + Join(Data, "\n") + "\n" + buf + Init + Assembly + "  ret"
 }
 
 func arg(n int) string {
