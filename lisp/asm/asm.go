@@ -56,6 +56,13 @@ func GenExit(status int) {
 
 func GenWrite(desc int, word string) {
 	buf := write
+	dataBuf := dataSection
+	wordid := word + Itoa(len(Data))
+	dataBuf = ReplaceAll(dataBuf, arg(0), wordid)
+	dataBuf = ReplaceAll(dataBuf, arg(1), word)
+	dataBuf = ReplaceAll(dataBuf, arg(2), "")
+	appendData(dataBuf)
 	buf = ReplaceAll(buf, arg(0), Itoa(desc))
-	buf = ReplaceAll(buf, arg(1), word) // Add length of data []string
+	buf = ReplaceAll(buf, arg(1), wordid)
+	appendAsm(buf)
 }
