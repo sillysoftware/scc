@@ -2,6 +2,8 @@ package asm_test
 
 import (
 	_ "embed"
+	"lisp/lisp/asm"
+	"lisp/lisp/cli"
 	"testing"
 )
 
@@ -11,4 +13,7 @@ var (
 )
 
 func TestAssembly(t *testing.T) {
+	asm.GenExit(0)
+	buf := asm.Reduce()
+	cli.Debug("asm", buf)
 }

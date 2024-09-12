@@ -23,7 +23,7 @@ var (
 	Init string
 	//go:embed assembly/exit.s
 	exit string
-	//go:embed assembly/write.s
+	//go:embed assembly/print.s
 	write string
 )
 
@@ -31,12 +31,8 @@ func appendAsm(data string) {
 	Assembly += data
 }
 
-func appendData(data string) {
-	Data += data
-}
-
 func Reduce() string {
-	buf := dataSection + Data + Init + Assembly
+	buf := Init + Assembly + "  ret"
 	return buf
 }
 
@@ -48,4 +44,9 @@ func GenExit(status int) {
 	buf := exit
 	buf = ReplaceAll(buf, arg(0), Itoa(status))
 	appendAsm(buf)
+}
+
+func GenWrite(desc int, word string) {
+	buf := write
+	buf = ReplaceAll(buf, arg(0), Itoa(desc))
 }

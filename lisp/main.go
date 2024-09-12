@@ -8,6 +8,7 @@
 package main
 
 import (
+	"lisp/lisp/asm"
 	"lisp/lisp/cli"
 	"lisp/lisp/compiler"
 	"os"
@@ -15,11 +16,15 @@ import (
 )
 
 func main() {
+	test()
 	if len(os.Args) < 2 {
 		// exits
 		cli.Fatal("No files found")
 	}
-	if strings.Contains(os.Args[1], ".lisp") == false || !strings.Contains(os.Args[1], ".cl") == false {
+	if !strings.HasSuffix(os.Args[1], ".lisp") {
+		cli.Fatal("Incorrect file extention")
+	}
+	if !strings.HasSuffix(os.Args[1], ".cl") {
 		cli.Fatal("Incorrect file extention")
 	}
 	content, err := os.ReadFile(os.Args[1])
@@ -28,4 +33,10 @@ func main() {
 	}
 	input := string(content)
 	compiler.Compile(input)
+}
+
+func test() {
+	asm.GenExit(0)
+	buf := asm.Reduce()
+	cli.Debug("asm", buf)
 }
