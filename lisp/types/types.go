@@ -34,23 +34,6 @@ type Node struct {
 
 type Visitor map[string]func(n *Node, p Node)
 
-type Assembly struct {
-	Operations string
-}
-
-func (a *Assembly) Init() {
-	a.Append(asm.Init)
-}
-
-func (a *Assembly) Reduce() {
-	a.Operations = "section .data\n" + a.Operations
-	a.Operations += "  ret"
-}
-
-func (a *Assembly) Append(data string) {
-	a.Operations += data
-}
-
 func (a *Assembly) AppendData(data string) {
 	a.Operations = data + a.Operations
 }
