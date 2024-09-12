@@ -21,10 +21,10 @@ func main() {
 		// exits
 		cli.Fatal("No files found")
 	}
-	if !strings.HasSuffix(os.Args[1], ".lisp") {
+	if strings.HasSuffix(os.Args[1], ".lisp") == false {
 		cli.Fatal("Incorrect file extention")
 	}
-	if !strings.HasSuffix(os.Args[1], ".cl") {
+	if strings.HasSuffix(os.Args[1], ".cl") == false {
 		cli.Fatal("Incorrect file extention")
 	}
 	content, err := os.ReadFile(os.Args[1])
