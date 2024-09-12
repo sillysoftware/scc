@@ -36,7 +36,7 @@ func main() {
 }
 
 func test() {
-	asm.GenWrite(1, "Hello")
+	asm.GenWrite(1, "lisp")
 	buf := asm.Reduce()
 	cli.Debug("asm", buf)
 }
