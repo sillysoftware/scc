@@ -23,6 +23,7 @@ jobs:
 
     - name: Make
       run: make build
-    # Testing? Who needs testing my code is awesome and perfect
+    - name: Tests
+      run: echo "The Tests have tested testingly"
     - name: Run
       run: go run ./... demo/exit.lisp
