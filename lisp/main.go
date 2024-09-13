@@ -18,7 +18,6 @@ import (
 func main() {
 	test()
 	if len(os.Args) < 2 {
-		// exits
 		cli.Fatal("No files found")
 	}
 	if strings.HasSuffix(os.Args[1], ".lisp") == false {
