@@ -24,6 +24,6 @@ jobs:
     - name: Make
       run: make build
     - name: Tests
-      run: echo "The Tests have tested testingly"
+      run: :"I will test this eventually..."
     - name: Run
       run: go run ./... demo/exit.lisp
