@@ -1,11 +1,16 @@
 FROM golang:1.22
 
-WORKDIR /usr/src/app
+WORKDIR /app
 
 COPY go.mod ./
 RUN go mod download && go mod verify
 
 COPY . .
-RUN go build -v -o /usr/local/bin/app ./...
+RUN go build -v -o lisp ./...
 
-CMD ["app"]
+FROM alpine:latest
+WORKDIR /app
+
+COPY --from=builder /app/lisp .
+
+CMD ["./lisp"]
