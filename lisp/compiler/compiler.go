@@ -9,17 +9,14 @@ package compiler
 
 import (
 	"fmt"
+	"lisp/lisp/asm"
 	"lisp/lisp/cli"
 	"lisp/lisp/types"
 	"runtime"
 )
 
-func Compile(source string) {
-	tokens := lexer(source)
-	ast := parser(tokens)
-	nast := transformer(ast)
-	out := codeGenerator(types.Node(nast))
-	fmt.Println(out)
+func Compile(source string) string {
+	return codeGenerator(types.Node(transformer(parser(lexer(source)))))
 }
 
 func lexer(source string) types.Tokens {
@@ -205,6 +202,5 @@ func codeGenerator(n types.Node) string {
 	if runtime.GOOS != "linux" {
 		cli.Fatal("Unsupported OS Detected: For an up-to-date support list go to the docs directory")
 	}
-	cli.Fatal("Code Generation incomplete")
-	return ""
+	return asm.Reduce()
 }

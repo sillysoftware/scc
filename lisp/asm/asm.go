@@ -17,13 +17,13 @@ import (
 var (
 	Assembly string
 	Data     []string
-	//go:embed assembly/data.s
+	//go:embed assembly/x86-64/data.s
 	dataSection string
-	//go:embed assembly/init.s
+	//go:embed assembly/x86-64/init.s
 	templateAsm string
-	//go:embed assembly/exit.s
+	//go:embed assembly/x86-64/exit.s
 	exit string
-	//go:embed assembly/write.s
+	//go:embed assembly/x86-64/write.s
 	write string
 )
 
@@ -36,6 +36,9 @@ func appendData(data string) {
 }
 
 func Reduce() string {
+	if len(Data) == 0 {
+		return Join(Data, "\n") + "\n" + templateAsm + Assembly + "  ret"
+	}
 	return "section .data\n" + Join(Data, "\n") + "\n" + templateAsm + Assembly + "  ret"
 }
 

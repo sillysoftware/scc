@@ -7,7 +7,7 @@ import (
 )
 
 var (
-	//go:embed assembly/test.s
+	//go:embed assembly/x86-64/test.s
 	testAsset string
 )
 

@@ -6,11 +6,11 @@ COPY go.mod ./
 RUN go mod download && go mod verify
 
 COPY . .
-RUN go build -v -o lisp ./...
+RUN make build
 
 FROM alpine:latest
 WORKDIR /app
 
 COPY --from=builder /app/lisp .
 
-CMD ["./lisp"]
+CMD ["./bin/lisp"]
