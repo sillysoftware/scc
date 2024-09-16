@@ -9,4 +9,6 @@
 - ARM support
 - Standard Libray
   - crypto, asm cuz turning completeness
-  - .cll header/lib
+- Headers
+  - .cll (common lisp lib)
+  - .ll (lisp lib)
