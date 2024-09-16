@@ -4,7 +4,9 @@
 - Refactor asm to target
 - Code generation
   - assembler and linker
-- ARM
+- Windows support
+- Mac support
+- ARM support
 - Standard Libray
-  - crypto
+  - crypto, asm cuz turning completeness
   - .cll header/lib
