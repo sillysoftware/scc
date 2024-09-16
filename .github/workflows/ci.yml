@@ -24,4 +24,4 @@ jobs:
     - name: Make
       run: make build
     - name: Run
-      run: go run ./... demo/exit.lisp
+      run: go run ./... testdata/exit.cl
