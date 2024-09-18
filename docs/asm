@@ -1,7 +1,0 @@
-ASSEMBLY:
-  Reduce:
-    Takes current assembly and prepares it for output and is usually called last. The Operations value has one value that is all of the assembly
-  GenExit:
-    Appends the an exit with a set exit status. Must be given a status int
-  GenWrite:
-    Prepends write data and appends the write syscall with the parameters in the data section. Must be given a file descptor and a word value.
