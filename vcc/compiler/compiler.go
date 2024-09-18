@@ -2,17 +2,17 @@
 //
 //	Copyright (C) 2024-2024 vx-clutch
 //
-//	This file is part of LISP.
+//	This file is part of vcc.
 //
-//	LISP is free software; you can redistribute it and/or modify it under the terms of the BSD 3-Clause Licence.
+//	vcc is free software; you can redistribute it and/or modify it under the terms of the BSD 3-Clause Licence.
 package compiler
 
 import (
 	"fmt"
-	"lisp/lisp/asm"
-	"lisp/lisp/cli"
-	"lisp/lisp/types"
 	"runtime"
+	"vcc/vcc/asm"
+	"vcc/vcc/cli"
+	"vcc/vcc/types"
 )
 
 func Compile(source string) string {
