@@ -2,9 +2,9 @@
 //
 //	Copyright (C) 2024-2024 vx-clutch
 //
-//	This file is part of LISP.
+//	This file is part of SCC.
 //
-//	LISP is free software; you can redistribute it and/or modify it under the terms of the BSD 3-Clause Licence.
+//	SCC is free software; you can redistribute it and/or modify it under the terms of the BSD 3-Clause Licence.
 package cli
 
 import (
@@ -21,19 +21,19 @@ const (
 )
 
 func Fatal(m any) {
-	fmt.Printf("LISP: %sfatal error%s: %s", errC, reset, m)
+	fmt.Printf("SCC: %sfatal error%s: %s", errC, reset, m)
 	fmt.Println("\ncompilation terminated.")
 	os.Exit(0)
 }
 
 func Error(m any) string {
-	fmt.Printf("LISP: %serror%s: %s\n", errC, reset, m)
-	return fmt.Sprintf("LISP: %serror%s: %s\n", errC, reset, m)
+	fmt.Printf("SCC: %serror%s: %s\n", errC, reset, m)
+	return fmt.Sprintf("SCC: %serror%s: %s\n", errC, reset, m)
 }
 
 func Warn(warning any) string {
 	fmt.Printf("%swarning:%s %s\n", warnC, reset, warning)
-	return fmt.Sprintf("LISP: %serror%s: %s\n", errC, reset, warning)
+	return fmt.Sprintf("SCC: %serror%s: %s\n", errC, reset, warning)
 }
 
 func Debug(tag string, dbm any) string {

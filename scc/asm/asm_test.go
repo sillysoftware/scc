@@ -2,8 +2,8 @@ package asm_test
 
 import (
 	_ "embed"
+	"scc/scc/asm"
 	"testing"
-	"vcc/vcc/asm"
 )
 
 var (
@@ -12,7 +12,7 @@ var (
 )
 
 func TestAssembly(t *testing.T) {
-	asm.GenWrite(1, "vcc")
+	asm.GenWrite(1, "scc")
 	buf := asm.Reduce()
 	if buf != testAsset {
 		t.Fatal("Incorrect Asm output")

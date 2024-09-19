@@ -2,15 +2,15 @@
 //
 //	Copyright (C) 2024-2024 vx-clutch
 //
-//	This file is part of vcc.
+//	This file is part of scc.
 //
-//	vcc is free software; you can redistribute it and/or modify it under the terms of the BSD 3-Clause Licence.
+//	scc is free software; you can redistribute it and/or modify it under the terms of the BSD 3-Clause Licence.
 package main
 
 import (
 	"os"
-	"vcc/vcc/cli"
-	"vcc/vcc/compiler"
+	"scc/scc/cli"
+	"scc/scc/compiler"
 )
 
 func main() {

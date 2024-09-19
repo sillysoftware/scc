@@ -2,17 +2,18 @@
 //
 //	Copyright (C) 2024-2024 vx-clutch
 //
-//	This file is part of vcc.
+//	This file is part of scc.
 //
-//	vcc is free software; you can redistribute it and/or modify it under the terms of the BSD 3-Clause Licence.
+//	scc is free software; you can redistribute it and/or modify it under the terms of the BSD 3-Clause Licence.
 package compiler
 
 import (
 	"fmt"
 	"runtime"
-	"vcc/vcc/asm"
-	"vcc/vcc/cli"
-	"vcc/vcc/types"
+	"strings"
+	// "scc/scc/asm"
+	"scc/scc/cli"
+	"scc/scc/types"
 )
 
 func Compile(source string) string {
@@ -202,5 +203,29 @@ func codeGenerator(n types.Node) string {
 	if runtime.GOOS != "linux" {
 		cli.Fatal("Unsupported OS Detected: For an up-to-date support list go to the docs directory")
 	}
-	return asm.Reduce()
+	switch n.Kind {
+	case "Program":
+		var r []string
+		for _, no := range n.Body {
+			r = append(r, codeGenerator(no))
+		}
+		return strings.Join(r, "\n")
+	case "ExperessionStatement":
+		return codeGenerator(*n.Expression) + ";"
+	case "CallExpression":
+		var ra []string
+		c := codeGenerator(*n.Callee)
+		for _, no := range *n.Arguments {
+			ra = append(ra, codeGenerator(no))
+		}
+		r := strings.Join(ra, ", ")
+		return c + "(" + r + ")"
+	case "Identifier":
+		return n.Name
+	case "NumberLiteral":
+		return n.Value
+	default:
+		cli.Fatal("err tbd")
+		return ""
+	}
 }
