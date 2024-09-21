@@ -10,6 +10,8 @@ package asm
 import (
 	_ "embed"
 	"fmt"
+	"os/exec"
+	"scc/SCC/cli"
 	. "strconv"
 	. "strings"
 )
@@ -63,4 +65,20 @@ func GenWrite(desc int, word string) {
 	buf = ReplaceAll(buf, arg(0), Itoa(desc))
 	buf = ReplaceAll(buf, arg(1), wordid)
 	appendAsm(buf)
+}
+
+func Object(name string) {
+	cmd := exec.Command("nasm", "-felf64", name)
+	err := cmd.Run()
+	if err != nil {
+		cli.Fatal(err)
+	}
+}
+
+func Link(name string) {
+	cmd := exec.Command("ld", "-o", name)
+	err := cmd.Run()
+	if err != nil {
+		cli.Fatal(err)
+	}
 }

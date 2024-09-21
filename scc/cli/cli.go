@@ -21,13 +21,13 @@ const (
 )
 
 func Fatal(m any) {
-	fmt.Printf("SCC: %sfatal error%s: %s", errC, reset, m)
+	fmt.Printf("SCC: %sfatal error:%s %s", errC, reset, m)
 	fmt.Println("\ncompilation terminated.")
 	os.Exit(0)
 }
 
 func Error(m any) string {
-	fmt.Printf("SCC: %serror%s: %s\n", errC, reset, m)
+	fmt.Printf("SCC: %serror:%s %s\n", errC, reset, m)
 	return fmt.Sprintf("SCC: %serror%s: %s\n", errC, reset, m)
 }
 
@@ -37,6 +37,6 @@ func Warn(warning any) string {
 }
 
 func Debug(tag string, dbm any) string {
-	fmt.Printf("%sdebug%s: %s\n%s\n", debugC, reset, tag, dbm)
+	fmt.Printf("%sdebug:%s %s\n%s\n", debugC, reset, tag, dbm)
 	return fmt.Sprintf("%sdebug%s: %s\n%s\n", debugC, reset, tag, dbm)
 }

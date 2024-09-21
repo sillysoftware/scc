@@ -225,7 +225,7 @@ func codeGenerator(n types.Node) string {
 	case "NumberLiteral":
 		return n.Value
 	default:
-		cli.Fatal("err tbd")
+		cli.Fatal(n)
 		return ""
 	}
 }

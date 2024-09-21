@@ -15,7 +15,7 @@ import (
 
 func main() {
 	if len(os.Args) < 2 {
-		cli.Fatal("No files found")
+		cli.Fatal("no input files")
 	}
 	content, err := os.ReadFile(os.Args[1])
 	if err != nil {
