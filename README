@@ -1,5 +1,5 @@
 THIS DIRECTORY CONTAINS SOFTWARE LICENCED UNDER THE BSD 3-Clause LICENCE
 
-This SCC compiler is free software and can be used in the bounds of the licence detailed in the LICENCE file in this directory. Installation information can be found in the INSTALL/ directory.
+This SCC, Silly Compiler Collections compiler is free software and can be used in the bounds of the licence detailed in the LICENCE file in this directory. Installation information can be found in the INSTALL/ directory.
 
 If any issues are found please report them to https://github.com/vx-clutch/vcc/issues
