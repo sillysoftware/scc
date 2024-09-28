@@ -15,11 +15,9 @@ You should have received a copy of the BSD 3-Clause
 along with SCC; see the file LICENCE. If not see
 <https://raw.githubusercontent.com/sillysoftware/scc/refs/heads/master/LICENSE> */
 
-#include <stdio.h>
+#include "lib/lexer.h"
 
 int main() {
-  #if !defined (__linux__)
-    printf("Your OS is not supported\n");
-  #endif
+    lexer();
     return 0;
 }
