@@ -1,4 +1,4 @@
-/* lexer.h: exposes lexer() for c, cc, etc
+/* lexer.c: defines lexer() for c, cc, etc
     Copyright (C) 2024-2024 Silly Software Foundation.
 
 This file is part of SCC.
@@ -15,13 +15,9 @@ You should have received a copy of the BSD 3-Clause
 along with SCC; see the file LICENCE. If not see
 <https://raw.githubusercontent.com/sillysoftware/scc/refs/heads/master/LICENSE> */
 
-#ifdef LEXER_H
-#define LEXER_H
+#include <stdio.h>
+#include "lexer.h"
 
-/* Lexer takes an input array of chars
- * @param source The input array of chars
- * @return The the array of tokens
- */
-void lexer();
-
-#endif
+void lexer() {
+  puts("Lexer invoked");
+}
