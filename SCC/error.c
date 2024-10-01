@@ -1,4 +1,4 @@
-/* generator.c: defines generator() for c, cc, etc
+/* error.c: defines error handel functions for c, cc, etc
     Copyright (C) 2024-2024 Silly Software Foundation.
 
 This file is part of SCC.
@@ -14,3 +14,12 @@ for more details.
 You should have received a copy of the BSD 3-Clause
 along with SCC; see the file LICENCE. If not see
 <https://raw.githubusercontent.com/sillysoftware/scc/refs/heads/master/LICENSE> */
+
+#include <stdio.h>
+#include <stdlib.h>
+#include "error.h"
+
+void fatal_error(const char *err) {
+  printf("SCC: fatal error: %s\n", err);
+  exit(1);
+}
