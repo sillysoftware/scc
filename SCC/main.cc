@@ -19,7 +19,7 @@ along with SCC; see the file LICENCE. If not see
 
 int main(int argc, char **argv) {
     if (argc < 2) {
-        fatal_error("test");
+        fatal_error("no input files");
     }
     return 0;
 }

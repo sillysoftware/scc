@@ -18,10 +18,31 @@ along with SCC; see the file LICENCE. If not see
 #ifndef ERROR_H
 #define ERROR_H
 
+#ifdef __cplusplus
+extern "C" {
+#endif
+
 /* fatal_error()
 * @param char* The input string
 * @return void
 */
-void fatal_error(const char* err);
+void fatal_error(const char *message);
+
+/* error()
+* @param char* The input string
+* @return void
+*/
+void error(const char *message);
+
+/* warning()
+* @param char* The input string
+* @return void
+*/
+void warning(const char *message);
+
+#ifdef __cplusplus
+}
+#endif
+
 
 #endif

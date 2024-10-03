@@ -1,4 +1,4 @@
-/* error.c: defines error handel functions for c, cc, etc
+/* error.c: defines error handeling functions for c, cc, etc
     Copyright (C) 2024-2024 Silly Software Foundation.
 
 This file is part of SCC.
@@ -19,7 +19,20 @@ along with SCC; see the file LICENCE. If not see
 #include <stdlib.h>
 #include "error.h"
 
-void fatal_error(const char *err) {
-  printf("SCC: fatal error: %s\n", err);
-  exit(1);
+
+const char *RESET = "\033[0m";
+const char *RED = "\033[1;91m";
+const char *PURPLE = "\033[0;95m";
+
+void fatal_error(const char *message) {
+  fprintf(stderr, "scc: %sfatal error%s: %s\ncompilation terminated.\n", RED, RESET, message);
+  exit(EXIT_FAILURE);
+}
+
+void error(const char *message) {
+  fprintf(stderr, "scc: %serror%s: %s\n", RED, RESET, message);
+}
+
+void warning(const char *message) {
+  fprintf(stderr, "scc: %swarning%s: %s\n", PURPLE, RESET, message);
 }
