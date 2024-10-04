@@ -11,4 +11,4 @@ RUN mkdir -p build
 WORKDIR /app/build
 RUN cmake ..
 RUN make
-CMD ["./scc"]
+CMD ["./scc/scc"]
