@@ -4,3 +4,4 @@
 !Dockerfile
 *.out
 build/
+*.lisp
