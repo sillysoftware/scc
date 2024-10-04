@@ -17,12 +17,13 @@ along with SCC; see the file LICENCE. If not see
 
 #include "error.h"
 #include "lexer.h"
-#include <stdio.h>
+#include <stdlib.h>
 
 int main(int argc, char **argv) {
+    int token_count = 0;
     if (argc < 2) {
         fatal_error("no input files");
     }
-    puts(lexer(""));
+    Token* tokens = lexer("exit", &token_count);
     return 0;
 }

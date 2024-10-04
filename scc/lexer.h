@@ -22,11 +22,36 @@ along with SCC; see the file LICENCE. If not see
 extern "C" {
 #endif
 
+/* MXTKLE
+ * Max token lenth SCC can take
+ */
+#define MXTKLE 100
+
+/* TokenType
+ * types of tokens
+ */
+typedef enum {
+  TOKEN_EOF,
+  TOKEN_IDENT,
+  TOKEN_KEYWORD,
+  TOKEN_NUMBER,
+  TOKEN_SYMBOL,
+  TOKEN_NIL,
+} TokenType;
+
+/* Token
+ * individual token
+ */
+typedef struct {
+  TokenType type;
+  char value[MXTKLE];
+} Token;
+
 /* lexer()
 * @param char* The input string
-* @return char*
+* @return Token
 */
-char *lexer(const char *source);
+Token* lexer(const char *source, int* token_count);
 
 
 #ifdef __cplusplus
