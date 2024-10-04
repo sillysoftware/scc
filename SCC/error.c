@@ -36,3 +36,7 @@ void error(const char *message) {
 void warning(const char *message) {
   fprintf(stderr, "scc: %swarning%s: %s\n", PURPLE, RESET, message);
 }
+
+void debug(const char *tag, const char*message) {
+  printf("debug: %s:\n%s", tag, message);
+}

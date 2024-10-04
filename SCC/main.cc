@@ -16,10 +16,13 @@ along with SCC; see the file LICENCE. If not see
 <https://raw.githubusercontent.com/sillysoftware/scc/refs/heads/master/LICENSE> */
 
 #include "error.h"
+#include "lexer.h"
+#include <stdio.h>
 
 int main(int argc, char **argv) {
     if (argc < 2) {
         fatal_error("no input files");
     }
+    puts(lexer(""));
     return 0;
 }
