@@ -16,5 +16,5 @@ along with SCC; see the file LICENCE. If not see
 <https://raw.githubusercontent.com/sillysoftware/scc/refs/heads/master/LICENSE> */
 
 char *lexer(const char *source) {
-  return "string";
+  return source;
 }
