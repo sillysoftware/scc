@@ -3,10 +3,9 @@ section .data
 ; -------------------------
 ; "EXIT" STATEMENT
 ; -------------------------
-exit:
-  mov rax, 60
-  mov rdi, r8
-  syscall
+%macro exit
+	; exit
+%end
 ; -------------------------
 ; "PRINT" STATEMENT
 ; -------------------------
