@@ -1,3 +1,5 @@
+; -------------------------
+; If you want to be a cool little hacker boy, you can add new statments by adding a new macro here and in scc/tokens.def.
 section .data
   newline db 0xA
 ; -------------------------

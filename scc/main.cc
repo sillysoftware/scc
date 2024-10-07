@@ -17,7 +17,7 @@ along with SCC; see the file LICENCE. If not see
 
 #include "error.h"
 // FIX: basic/basic.h
-#include "basic.c"
+#include "basic/basic.c"
 #include <stdlib.h>
 
 int main(int argc, char **argv) {
