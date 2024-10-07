@@ -3,39 +3,29 @@ section .data
 ; -------------------------
 ; "EXIT" STATEMENT
 ; -------------------------
-%macro exit
-	; exit
-%end
+%macro exit 1
+	mov rax, 60
+ 	mov rdi, %1
+  	syscall
+%endmacro
 ; -------------------------
 ; "PRINT" STATEMENT
 ; -------------------------
-print:
+%macro print 2
   mov rax, 1
   mov rdi, 1
-  mov rsi, r8
-  mov rdx, 8
+  mov rsi, %1
+  mov rdx, %2
   syscall
-  ret
+%endmacro
 ; -------------------------
 ; "PRINTLN" STATEMENT
 ; -------------------------
-println:
+%macro print 2
   mov rax, 1
   mov rdi, 1
-  mov rsi, r8
-  mov rdx, 8
+  mov rsi, %1
+  mov rdx, %2
   syscall
-  mov rax, 1
-  mov rdi, 1
-  mov rsi, 0xA
-  mov rdx, 1
-  syscall
-  ret
-; -------------------------
-; "ADD" STATEMENT
-; -------------------------
-add:
-  xor r8, r8
-  xor r9, r9
-  add r8, r9
-  mov rax, r8
+  print newline, 1
+%endmacro
