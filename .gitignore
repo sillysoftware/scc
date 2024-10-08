@@ -4,6 +4,3 @@
 !Dockerfile
 *.out
 build/
-debug/
-release/
-*.lisp
