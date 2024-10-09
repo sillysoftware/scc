@@ -18,26 +18,34 @@ along with SCC; see the file LICENCE. If not see
 #include "error.h"
 #include <cstdio>
 #include <cstring>
-#include <regex>
-#include <stdlib.h>
+#include <string>
+#include <iostream>
+#include <vector>
 
 int main(int argc, char *argv[]) {
+    std::vector<std::string> args;
+    for (int i = 0; i < argc; ++i) {
+        args.push_back(std::string(argv[i]));
+    }
     if (argc < 2) {
         fatal_error("no input files");
     }
-    std::regex ext_regex(".c");
-    /* Replace regex with a array of strings then prepend "." */
-    int found;
+    std::vector<std::string> ext = {".c", ".cc", ".cxx", ".cpp"};
+    int found = 0;  
     for (int i = 1; i < argc; i++) {
-        auto carg = argv[i];
-        if (std::regex_search(carg, ext_regex)) {
-            puts("Found the extention for C/CXX");
-            found++;
+        auto carg = args[i];
+        for (const auto &str : ext) {
+            if (carg.length() >= str.length() && 
+                carg.compare(carg.length() - str.length(), str.length(), str) == 0) {
+                std::cout << "Found: " << carg << std::endl;  
+                found++;
+                break; 
+            }
         }
     }
-    if (found == 0) {
+    if (found == 0) {  
         fatal_error("file format not supported");
     }
-    /* direct to tokenizer then to parser based off extention */
+    /* parser argv on ext */
     return 0;
 }

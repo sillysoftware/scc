@@ -8,12 +8,8 @@ set(CMAKE_CXX_STANDARD 17)
 
 set(CMAKE_EXE_LINKER_FLAGS "-L/usr/lib64 -static")
 
-set(C_SOURCE_FILES
-    scc/error.c
+file(GLOB SOURCE_FILES 
+    scc/*.c*
 )
 
-set(CXX_SOURCE_FILES
-    scc/main.cc
-)
-
-add_executable(scc ${C_SOURCE_FILES} ${CXX_SOURCE_FILES})
+add_executable(scc ${SOURCE_FILES})
