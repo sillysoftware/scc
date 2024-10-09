@@ -26,6 +26,7 @@ int main(int argc, char *argv[]) {
         fatal_error("no input files");
     }
     std::regex ext_regex(".c");
+    /* Replace regex with a array of strings then prepend "." */
     int found;
     for (int i = 1; i < argc; i++) {
         auto carg = argv[i];
@@ -37,5 +38,6 @@ int main(int argc, char *argv[]) {
     if (found == 0) {
         fatal_error("file format not supported");
     }
+    /* direct to tokenizer then to parser based off extention */
     return 0;
 }
