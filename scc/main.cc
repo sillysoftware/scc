@@ -16,14 +16,26 @@ along with SCC; see the file LICENCE. If not see
 <https://raw.githubusercontent.com/sillysoftware/scc/refs/heads/master/LICENSE> */
 
 #include "error.h"
-// FIX: basic/basic.h
-#include "basic/basic.c"
+#include <cstdio>
+#include <cstring>
+#include <regex>
 #include <stdlib.h>
 
-int main(int argc, char **argv) {
-    (void)argv;
+int main(int argc, char *argv[]) {
     if (argc < 2) {
         fatal_error("no input files");
     }
-    return basic();
+    std::regex ext_regex(".c");
+    int found;
+    for (int i = 1; i < argc; i++) {
+        auto carg = argv[i];
+        if (std::regex_search(carg, ext_regex)) {
+            puts("Found the extention for C/CXX");
+            found++;
+        }
+    }
+    if (found == 0) {
+        fatal_error("file format not supported");
+    }
+    return 0;
 }

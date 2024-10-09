@@ -8,10 +8,7 @@ set(CMAKE_CXX_STANDARD 17)
 
 set(CMAKE_EXE_LINKER_FLAGS "-L/usr/lib64 -static")
 
-include_directories(scc/basic)
-
 set(C_SOURCE_FILES
-    scc/basic/basic.c
     scc/error.c
 )
 
