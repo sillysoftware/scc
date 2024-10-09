@@ -1,1 +1,1 @@
-; arm sembly
+/* gas syntax */
