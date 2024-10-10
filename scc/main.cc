@@ -49,6 +49,7 @@ pflags parse_pflags(int argc, const char* argv[]) {
 }
 
 int main(int argc, char *argv[]) {
+    parse_pflags(argc, argv);
     std::vector<std::string> args;
     for (int i = 0; i < argc; ++i) {
         args.push_back(std::string(argv[i]));
