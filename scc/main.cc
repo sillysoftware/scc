@@ -30,7 +30,7 @@ int main(int argc, char *argv[]) {
     if (argc < 2) {
         fatal_error("no input files");
     }
-    std::vector<std::string> ext = {".c", ".cc", ".cxx", ".cpp"};
+    std::vector<std::string> ext = {"bsc", "b", "basic"};
     int found = 0;  
     for (int i = 1; i < argc; i++) {
         auto carg = args[i];
