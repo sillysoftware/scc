@@ -30,22 +30,7 @@ struct pflags {
 
 pflags parse_pflags(int argc, const char* argv[]) {
     pflags enabled;
-    for(int i {1}; i < argc; i++) {
-    string opt {argv[i]};
-    if(auto j {NoArgs.find(opt)}; j != NoArgs.end())
-      j->second(settings);
-    else if(auto k {OneArgs.find(opt)}; k != OneArgs.end())
-      if(++i < argc)
-        k->second(settings, {argv[i]});
-      else
-        throw std::runtime_error {"missing param after " + opt};
-    else if(!settings.infile)
-      settings.infile = argv[i];
-    else
-      cerr << "unrecognized command-line option " << opt << endl;
-  }
-  return enabled;
-}
+    return enabled;
 }
 
 int main(int argc, char *argv[]) {
