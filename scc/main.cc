@@ -18,23 +18,22 @@ along with SCC; see the file LICENCE. If not see
 #include "error.h"
 #include <cstdio>
 #include <cstring>
+#include <optional>
 #include <string>
 #include <iostream>
 #include <vector>
 
+#ifndef EXT
+#define EXT {""}
+#endif
+
 struct pflags {
     bool help {false};
     bool repl {false};
-    option<string> outfile;
+    std::optional<std::string> outfile;
 };
 
-pflags parse_pflags(int argc, const char* argv[]) {
-    pflags enabled;
-    return enabled;
-}
-
 int main(int argc, char *argv[]) {
-    parse_pflags(argc, argv);
     std::vector<std::string> args;
     for (int i = 0; i < argc; ++i) {
         args.push_back(std::string(argv[i]));
@@ -42,7 +41,7 @@ int main(int argc, char *argv[]) {
     if (argc < 2) {
         fatal_error("no input files");
     }
-    std::vector<std::string> ext = {"bsc", "b", "basic"};
+    std::vector<std::string> ext = EXT;
     int found = 0;  
     for (int i = 1; i < argc; i++) {
         auto carg = args[i];

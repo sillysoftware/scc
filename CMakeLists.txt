@@ -8,6 +8,10 @@ set(CMAKE_CXX_STANDARD 17)
 
 set(CMAKE_EXE_LINKER_FLAGS "-L/usr/lib64 -static")
 
+# THIS MUST BE DEFINED TO EXT={"EXT"}
+# scc is intended to be easy to hack this helps with file extention checking
+add_compile_definitions(EXT={"b"})
+
 file(GLOB SOURCE_FILES 
     scc/*.c*
 )
