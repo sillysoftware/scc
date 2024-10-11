@@ -80,9 +80,16 @@ int main(int argc, char *argv[]) {
     }
     pflags flags = parse_args(args);
     if (flags.help) {
-        std::string helptxt = "Usage: scc [options] files...\n\nOptions:\n\n  -h, --help        Prints out the help and exit.\n  -R, --repl        Enables the REPL.\n  -o                Sets the output file.\n  -S                Compile only; do not assemble or link.\n  -E                Preproccess only; do not compile, assemble or link.\n  -c                Compile and assemble, but do not link.";
-        helptxt += "\n\nIf any bugs are found during use of this software report them to:\n<https://github.com/sillysoftware/scc/issues>";
-        std::cout << helptxt << std::endl;
+        std::string help = "Usage: scc [options] file...\n\n";
+        help += "Options:\n";
+        help += "  -h, --help\tPrints out the help and exit.\n";
+        help += "  -R, --repl\tEnables the REPL.\n";
+        help += "  -o <file>\tPlace the output into <file>.\n";
+        help += "  -S\t\tCompile only; do not assemble or link.\n";
+        help += "  -E\t\tPreproccess only; do not compile, assemble or link.\n";
+        help += "  -c\t\tCompile and assemble, but do not link.\n";
+        help += "\nIf any bugs are found during use of this software report them to:\n<https://github.com/sillysoftware/scc/issues>";
+        std::cout << help << std::endl;
         exit(0);
     }
     std::vector<std::string> ext = EXT;
