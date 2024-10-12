@@ -1,1 +1,6 @@
-To build the SCC binary, within the root directory run the "make" command. on systems with both make and gcc installed.
+To build and compile the scc binary follow the following steps:
+  Linux: cmake, make, gcc, g++
+    1: in the root directory of scc create the build/ directory, then change into that directory
+    2: inside that build/ run cmake ..
+    3: then run make
+    4: to run the binary run ./scc
