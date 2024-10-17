@@ -1,4 +1,4 @@
-/* lexer.h: defines lexer() for c, cc, etc
+/* error.h: defines error handel functions for c, cc, etc
     Copyright (C) 2024-2024 Silly Software Foundation.
 
 This file is part of SCC.
@@ -15,21 +15,17 @@ You should have received a copy of the BSD 3-Clause
 along with SCC; see the file LICENCE. If not see
 <https://raw.githubusercontent.com/sillysoftware/scc/refs/heads/master/LICENSE> */
 
-#ifndef LEXER_H
-#define LEXER_H
+#ifndef ERROR_H
+#define ERROR_H
 
-#ifdef __cplusplus
-extern "C" {
-#endif
+#include <vector>
+#include <string>
 
-/* lexer()
-* @param source The input source code
-* @return std::string
+/* toplev()
+* @param argc Argument count
+* @param argv Value of each element in the vector of strings of the initial input args
+* @return void
 */
-std::string lexer(std::string source);
+void toplev(int argc, std::vector<std::string> argv);
 
-#ifdef __cplusplus
-}
 #endif
-#endif
-

@@ -11,7 +11,7 @@ set(CMAKE_EXE_LINKER_FLAGS "-L/usr/lib64 -static")
 # THIS MUST BE DEFINED TO EXT={ ".c", ".cc", ... }
 # This default to {  }
 # scc is intended to be easy to hack this helps with file extention checking
-add_compile_definitions(EXT={"b"})
+add_compile_definitions(EXT={"c"})
 
 file(GLOB SOURCE_FILES 
     scc/*.c*
