@@ -17,6 +17,10 @@ along with SCC; see the file LICENCE. If not see
 
 #include "toplev.h"
 
+#ifndef EXT
+#define EXT { } /* see CMakeLists.txt */
+#endif
+
 int main(int argc, char *argv[]) {
     std::vector<std::string> args;
     for (int i = 0; i < argc; ++i) {

@@ -16,16 +16,13 @@ along with SCC; see the file LICENCE. If not see
 <https://raw.githubusercontent.com/sillysoftware/scc/refs/heads/master/LICENSE> */
 
 #include "error.h"
+#include <cassert>
 #include <cstdio>
 #include <cstring>
 #include <optional>
 #include <string>
 #include <iostream>
 #include <vector>
-
-#ifndef EXT
-#define EXT {""} /* set in CMakeLists.txt */
-#endif
 
 struct pflags {
     bool help {false};
@@ -34,6 +31,7 @@ struct pflags {
     bool verbose {false};
     bool expand {false};
     bool obj {false};
+    bool version {false};
     std::optional<std::string> outfile;
 };
 
@@ -43,6 +41,9 @@ pflags parse_args(const std::vector<std::string>& argv) {
         const std::string& arg = argv[i];
         if (arg == "--help" || arg == "-h") {
             flags.help = true;
+        } 
+        if (arg == "--version" || arg == "-v") {
+            flags.version = true;
         } 
         else if (arg == "--repl" || arg == "-R") {
             flags.repl = true;
@@ -79,6 +80,7 @@ void toplev(int argc, std::vector<std::string> argv) {
         std::string help = "Usage: scc [options] file...\n\n";
         help += "Options:\n";
         help += "  -h, --help\tPrints out the help and exit.\n";
+        help += "  -v, --version\tPrints out the version and exit.\n";
         help += "  -R, --repl\tEnables the REPL.\n";
         help += "  -o <file>\tPlace the output into <file>.\n";
         help += "  -S\t\tCompile only; do not assemble or link.\n";
@@ -88,6 +90,9 @@ void toplev(int argc, std::vector<std::string> argv) {
         std::cout << help << std::endl;
         exit(0);
     }
+    #ifndef EXT
+        #error "EXT is not defined! <https://github.com/sillysoftware/scc>"
+    #endif
     std::vector<std::string> ext = EXT;
     int found = 0;  
     int kargc = argc;
@@ -111,5 +116,8 @@ void toplev(int argc, std::vector<std::string> argv) {
 
     if (flags.outfile) {
         std::cout << "Output file: " << *flags.outfile << '\n';
+    }
+    if (flags.version) {
+        /* embed versions.txt, print, and exit */
     }
 }
