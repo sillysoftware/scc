@@ -90,6 +90,23 @@ void toplev(int argc, std::vector<std::string> argv) {
         std::cout << help << std::endl;
         exit(0);
     }
+    if (flags.repl) {
+        std::cout << "REPL mode activated.\n";
+    }
+
+    if (flags.outfile) {
+        std::cout << "Output file: " << *flags.outfile << '\n';
+    }
+    if (flags.version) {
+        #ifndef VERSION
+            #error "VERSION is not defined! <https://github.com/sillysoftware/scc>"
+        #endif
+        #ifndef YEAR
+            #error "YEAR is not defined! <https://github.com/sillysoftware/scc>"
+        #endif
+        std::cout << "scc (SCC) " << VERSION << " " << YEAR << " (Silly Software)\nCopyright (C) " << YEAR << " Silly Software Foundation.\nThis is free software; see the source for copying conditions.  There is NO\nwarranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.\n" << std::endl;
+        exit(0);
+    }
     #ifndef EXT
         #error "EXT is not defined! <https://github.com/sillysoftware/scc>"
     #endif
@@ -109,15 +126,5 @@ void toplev(int argc, std::vector<std::string> argv) {
     }
     if (found == 0) {  
         error("file format not supported");
-    }
-    if (flags.repl) {
-        std::cout << "REPL mode activated.\n";
-    }
-
-    if (flags.outfile) {
-        std::cout << "Output file: " << *flags.outfile << '\n';
-    }
-    if (flags.version) {
-        /* embed versions.txt, print, and exit */
     }
 }

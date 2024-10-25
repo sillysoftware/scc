@@ -13,6 +13,11 @@ set(CMAKE_EXE_LINKER_FLAGS "-L/usr/lib64 -static")
 # scc is intended to be easy to hack this helps with file extention checking
 add_compile_definitions(EXT={"c"})
 
+# current compiler version and year
+# DO NOT CHANGE
+add_compile_definitions(VERSION="0.0.1")
+add_compile_definitions(YEAR="2024")
+
 file(GLOB SOURCE_FILES 
     scc/*.c*
 )
