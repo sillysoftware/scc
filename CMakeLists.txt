@@ -15,6 +15,7 @@ add_compile_definitions(EXT={"c"})
 
 # current compiler version and year
 # DO NOT CHANGE
+# unless you want to :3 this is open source i can't stop you, only guide.
 add_compile_definitions(VERSION="0.0.1")
 add_compile_definitions(YEAR="2024")
 
