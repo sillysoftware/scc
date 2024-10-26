@@ -99,16 +99,16 @@ void toplev(int argc, std::vector<std::string> argv) {
     }
     if (flags.version) {
         #ifndef VERSION
-            #error "VERSION is not defined! <https://github.com/sillysoftware/scc>"
+            #define nil
         #endif
         #ifndef YEAR
-            #error "YEAR is not defined! <https://github.com/sillysoftware/scc>"
+            #define nil
         #endif
         std::cout << "scc (SCC) " << VERSION << " " << YEAR << " (Silly Software)\nCopyright (C) " << YEAR << " Silly Software Foundation.\nThis is free software; see the source for copying conditions.  There is NO\nwarranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.\n" << std::endl;
         exit(0);
     }
     #ifndef EXT
-        #error "EXT is not defined! <https://github.com/sillysoftware/scc>"
+        #define nil
     #endif
     std::vector<std::string> ext = EXT;
     int found = 0;  
