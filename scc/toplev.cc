@@ -19,6 +19,7 @@ along with SCC; see the file LICENCE. If not see
 #include <cassert>
 #include <cstdio>
 #include <cstring>
+#include <fstream>
 #include <optional>
 #include <string>
 #include <iostream>
@@ -71,6 +72,18 @@ pflags parse_args(const std::vector<std::string>& argv) {
     return flags;
 }
 
+void really_bad_file_read(std::string path) {
+    std::ifstream f(path);
+    if (!f.is_open()) {
+        fatal_error("Error opening the file!");
+    }
+    std::string s;
+    while (getline(f, s)) {
+        std::cout << s << std::endl;
+    }
+    f.close();
+}
+
 void toplev(int argc, std::vector<std::string> argv) {
     if (argc < 2) {
         fatal_error("no input files");
@@ -111,6 +124,7 @@ void toplev(int argc, std::vector<std::string> argv) {
         #define nil
     #endif
     std::vector<std::string> ext = EXT;
+    std::vector<std::string> files;
     int found = 0;  
     int kargc = argc;
     for (int i = 1; i < kargc; i++) {
@@ -118,7 +132,7 @@ void toplev(int argc, std::vector<std::string> argv) {
         for (const auto &str : ext) {
             if (carg.length() >= str.length() && 
                 carg.compare(carg.length() - str.length(), str.length(), str) == 0) {
-                std::cout << "Found: " << carg << std::endl;  
+                files.push_back(carg);
                 found++;
                 break; 
             }
@@ -127,4 +141,5 @@ void toplev(int argc, std::vector<std::string> argv) {
     if (found == 0) {  
         error("file format not supported");
     }
+    really_bad_file_read(files[0]);
 }
