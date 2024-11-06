@@ -1,0 +1,3 @@
+CXXFLAGS=-Wall
+CFLAGS=-Wall
+CC=g++
