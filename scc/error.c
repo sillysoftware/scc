@@ -25,18 +25,21 @@ const char *RED = "\033[1;91m";
 const char *PURPLE = "\033[0;95m";
 
 void fatal_error(const char *message) {
-  fprintf(stderr, "scc: %sfatal error%s: %s\ncompilation terminated.\n", RED, RESET, message);
+  (void)fprintf(stderr, "scc: %sfatal error%s: %s\ncompilation terminated.\n", RED, RESET, message);
   exit(EXIT_FAILURE);
 }
 
-void error(const char *message) {
-  fprintf(stderr, "scc: %serror%s: %s\n", RED, RESET, message);
+int error(const char *message) {
+  (void)fprintf(stderr, "scc: %serror%s: %s\n", RED, RESET, message);
+  return 0;
 }
 
-void warning(const char *message) {
-  fprintf(stderr, "scc: %swarning%s: %s\n", PURPLE, RESET, message);
+int warning(const char *message) {
+  (void)fprintf(stderr, "scc: %swarning%s: %s\n", PURPLE, RESET, message);
+  return 0;
 }
 
-void debug(const char *tag, const char*message) {
-  printf("debug: %s:\n%s", tag, message);
+int debug(const char *tag, const char*message) {
+  (void)printf("debug: %s:\n%s", tag, message);
+  return 0;
 }

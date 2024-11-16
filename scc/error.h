@@ -30,22 +30,22 @@ void fatal_error(const char *message);
 
 /* error()
 * @param char* The input string
-* @return void
+* @return int
 */
-void error(const char *message);
+int error(const char *message);
 
 /* warning()
 * @param char* The input string
-* @return void
+* @return int
 */
-void warning(const char *message);
+int warning(const char *message);
 
 /* debug()
 * @param tag The tag of the debug message
 * @param message The input string
-* @return void
+* @return int
 */
-void debug(const char *tag, const char *message);
+int debug(const char *tag, const char *message);
 
 #ifdef __cplusplus
 }

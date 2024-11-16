@@ -111,18 +111,18 @@ void toplev(int argc, std::vector<std::string> argv) {
         std::cout << "Output file: " << *flags.outfile << '\n';
     }
     if (flags.version) {
-        #ifndef VERSION
-            #define nil
-        #endif
-        #ifndef YEAR
-            #define nil
-        #endif
+#ifndef VERSION
+#define nil
+#endif
+#ifndef YEAR
+#define nil
+#endif
         std::cout << "scc (SCC) " << VERSION << " " << YEAR << " (Silly Software)\nCopyright (C) " << YEAR << " Silly Software Foundation.\nThis is free software; see the source for copying conditions.  There is NO\nwarranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.\n" << std::endl;
         exit(0);
     }
-    #ifndef EXT
-        #define nil
-    #endif
+#ifndef EXT
+#define nil
+#endif
     std::vector<std::string> ext = EXT;
     std::vector<std::string> files;
     int found = 0;  
