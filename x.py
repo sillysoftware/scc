@@ -1,4 +1,6 @@
-prog = "5 7 / 2 + ."
+import sys
+prog = ""
+f = open(sys.argv[1], "r")
 
 stack = []
 segment = {}
@@ -31,3 +33,4 @@ for tok in toks:
         stack.append(lhs / rhs)
 
 print(segment)
+f.close()
