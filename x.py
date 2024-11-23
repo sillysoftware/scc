@@ -1,4 +1,4 @@
-prog = "5 7 / 2 + ."
+prog = "3 4 +"
 
 stack = []
 segment = {}
@@ -11,23 +11,14 @@ for tok in toks:
         segment[str(tok)] = next(toks, 0)
     elif tok.isalpha() and tok in segment:
         stack.append(segment[str(tok)])
-    elif tok == ".":
-        print(stack)
-    elif tok == "+":
+    elif tok in "=-*/":
         lhs = stack.pop(0)
         rhs = stack.pop(0)
-        stack.append(lhs + rhs)
-    elif tok == "-":
-        lhs = stack.pop(0)
-        rhs = stack.pop(0)
-        stack.append(lhs - rhs)
-    elif tok == "*":
-        lhs = stack.pop(0)
-        rhs = stack.pop(0)
-        stack.append(lhs * rhs)
-    elif tok == "/":
-        lhs = stack.pop(0)
-        rhs = stack.pop(0)
-        stack.append(lhs / rhs)
-
-print(segment)
+        if tok == "+":
+            stack.append(lhs + rhs)
+        elif tok == "-":
+            stack.append(lhs - rhs)
+        elif tok == "*":
+            stack.append(lhs * rhs)
+        elif tok == "/":
+            stack.append(lhs // rhs)
